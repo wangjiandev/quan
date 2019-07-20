@@ -33,36 +33,20 @@
     }
   </style>
   <style>
-    .q-button {
-      height: var(--button-height);
-      font-size: var(--font-size);
-      padding: 0 1em;
-      border-radius: var(--border-radius);
-      border: 1px solid var(--border-color);
-      background: var(--button-bg);
-    }
-    .q-button:hover {
-      border-color: var(--border-hover-color);
-    }
-    .q-button:active {
-      background-color: var(--button-active-bg);
-    }
-    .q-button:focus {
-      outline: none;
-    }
+  .icon {
+    width: 1em;
+    height: 1em;
+  }
   </style>
 </head>
 <body>
 <div id="app">
-  <q-button></q-button>
+  <q-button>按钮</q-button>
+  <q-button icon="zan">按钮</q-button>
+  <q-button icon="zan" icon-position="right">按钮</q-button>
 </div>
-<script src="node_modules/vue/dist/vue.min.js"></script>
-<script src="./button.js"></script>
-<script>
-  new Vue({
-    el: '#app'
-  })
-</script>
+<script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_1305172_ely3nsqh0h.js"></script>
 </body>
 </html>
 
