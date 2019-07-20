@@ -1,6 +1,8 @@
 <template>
-  <button class="q-button" :class="{[`icon-${iconPosition}`]:true}">
-    <q-icon v-if="icon" :name="icon" class="icon"></q-icon>
+  <button class="q-button" :class="{[`icon-${iconPosition}`]:true}"
+          @click="$emit('click')">
+    <q-icon v-if="icon && !loading" :name="icon" class="icon"></q-icon>
+    <q-icon v-if="loading" name="loading" class="icon loading"></q-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -10,6 +12,10 @@
   export default {
     props: {
       icon: {},
+      loading: {
+        type: Boolean,
+        default: false
+      },
       iconPosition: {
         type: String,
         default: 'left',
@@ -21,6 +27,15 @@
   }
 </script>
 <style lang="scss">
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   .q-button {
     height: var(--button-height);
     font-size: var(--font-size);
@@ -64,6 +79,10 @@
       > .content {
         order: 1;
       }
+    }
+
+    .loading {
+      animation: spin 1.2s infinite linear;
     }
   }
 </style>
